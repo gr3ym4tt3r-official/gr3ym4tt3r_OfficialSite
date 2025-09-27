@@ -23,6 +23,7 @@ out/
 .env.development.local
 .env.test.local
 .env.production.local
+.env*.local
 
 # IDE and editor files
 .vscode/
@@ -114,3 +115,52 @@ Icon
 *.rar
 *.tar
 *.zip
+
+# TypeScript
+*.tsbuildinfo
+.tsbuildinfo
+
+# Next.js specific
+.next/
+.vercel/
+out/
+
+# Testing
+__tests__/
+coverage/
+.nyc_output/
+jest.config.js
+
+# Storybook
+.storybook/
+storybook-static/
+
+# Bundle analyzer
+.next-bundle-analyzer/
+
+# PWA
+public/sw.js
+public/workbox-*.js
+public/sw.js.map
+public/workbox-*.js.map
+
+# Sentry
+.sentryclirc
+
+# Security and secrets
+secrets/
+*.pem
+*.key
+*.crt
+*.p12
+*.keystore
+auth.json
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Analytics and tracking
+analytics/
+tracking/
