@@ -164,3 +164,51 @@ auth.json
 # Analytics and tracking
 analytics/
 tracking/
+
+# Framer Motion and animation cache
+.framer-motion/
+
+# Design system and component documentation
+storybook-static/
+.storybook/build/
+
+# Temporary development files
+*.tmp
+*.temp
+.scratch/
+scratch/
+
+# Theme and CSS generation
+tailwind.generated.css
+
+# Local development overrides
+.local/
+local-config.*
+
+# Testing artifacts (when added)
+__tests__/**/*.snap
+cypress/screenshots/
+cypress/videos/
+playwright-report/
+test-results/
+
+# Project-specific ignores
+# Ignore any personal notes or drafts
+notes/
+drafts/
+todo.md
+TODO.md
+.notes/
+
+# Build analysis
+.next-bundle-analyzer/
+bundle-analyzer-report.html
+
+# Email service tokens and API keys
+api-keys/
+tokens/
+*.token
+
+# Social media and external service configs
+social-config.*
+external-services.json
