@@ -320,11 +320,7 @@ export const motionConfig = {
   viewport: { once: true, margin: '-50px' },
 } as const;
 
-// Export commonly used values
-export {
-  easings as easing,
-  durations as duration,
-  stagger,
-  animations,
-  hoverAnimations as hover,
-};
+// Export aliases for commonly used values
+export const easing = easings;
+export const duration = durations;
+export const hover = hoverAnimations;

@@ -6,7 +6,7 @@
  */
 
 // Font families (Google Fonts)
-export const fontFamilies = {
+const fontFamilies = {
   // Modern grotesk for UI text
   sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
   
@@ -22,7 +22,7 @@ export const fontFamilies = {
 const scaleRatio = 1.25;
 const baseSize = 16; // 16px base
 
-export const fontSizes = {
+const fontSizes = {
   xs: '0.75rem',    // 12px
   sm: '0.875rem',   // 14px
   base: '1rem',     // 16px - base size
@@ -39,7 +39,7 @@ export const fontSizes = {
 } as const;
 
 // Line heights following 4px rhythm
-export const lineHeights = {
+const lineHeights = {
   none: '1',
   tight: '1.25',
   snug: '1.375',
@@ -58,7 +58,7 @@ export const lineHeights = {
 } as const;
 
 // Font weights
-export const fontWeights = {
+const fontWeights = {
   thin: '100',
   extralight: '200',
   light: '300',
@@ -71,7 +71,7 @@ export const fontWeights = {
 } as const;
 
 // Letter spacing for better readability
-export const letterSpacing = {
+const letterSpacing = {
   tighter: '-0.05em',
   tight: '-0.025em',
   normal: '0em',

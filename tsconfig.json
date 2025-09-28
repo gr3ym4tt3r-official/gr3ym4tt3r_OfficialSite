@@ -20,8 +20,10 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/components/*": ["./components/*"],
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/design-system": ["./src/design-system"],
+      "@/design-system/*": ["./src/design-system/*"],
       "@/lib/*": ["./lib/*"],
       "@/app/*": ["./app/*"]
     }
