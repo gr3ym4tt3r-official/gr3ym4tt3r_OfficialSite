@@ -31,7 +31,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
             {navigationLinks.map((link) => (
               <Link
                 key={link.href}
@@ -60,11 +60,14 @@ export function Header() {
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2"
+              aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {isMobileMenuOpen ? (
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" aria-hidden="true" />
               ) : (
-                <Menu className="w-5 h-5" />
+                <Menu className="w-5 h-5" aria-hidden="true" />
               )}
             </Button>
           </div>
@@ -72,7 +75,11 @@ export function Header() {
 
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden mt-4 py-4 border-t border-grey-800/50">
+          <nav 
+            id="mobile-navigation"
+            className="md:hidden mt-4 py-4 border-t border-grey-800/50" 
+            aria-label="Mobile navigation"
+          >
             <div className="flex flex-col space-y-4">
               {navigationLinks.map((link) => (
                 <Link

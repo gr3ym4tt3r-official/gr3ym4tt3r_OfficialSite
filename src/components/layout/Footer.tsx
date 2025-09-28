@@ -44,11 +44,31 @@ export function Footer() {
             
             {/* Social Links */}
             <Stack direction="horizontal" space="sm" className="mb-6">
-              <SocialButton platform="twitter" href="#" />
-              <SocialButton platform="github" href="#" />
-              <SocialButton platform="linkedin" href="#" />
-              <SocialButton platform="instagram" href="#" />
-              <SocialButton platform="youtube" href="#" />
+              <SocialButton 
+                platform="twitter" 
+                href="https://twitter.com/gr3ym4tt3r" 
+                aria-label="Follow us on Twitter"
+              />
+              <SocialButton 
+                platform="github" 
+                href="https://github.com/gr3ym4tt3r-official" 
+                aria-label="View our projects on GitHub"
+              />
+              <SocialButton 
+                platform="linkedin" 
+                href="https://linkedin.com/company/gr3ym4tt3r" 
+                aria-label="Connect with us on LinkedIn"
+              />
+              <SocialButton 
+                platform="instagram" 
+                href="https://instagram.com/gr3ym4tt3r" 
+                aria-label="Follow us on Instagram"
+              />
+              <SocialButton 
+                platform="youtube" 
+                href="https://youtube.com/@gr3ym4tt3r" 
+                aria-label="Subscribe to our YouTube channel"
+              />
             </Stack>
           </div>
 

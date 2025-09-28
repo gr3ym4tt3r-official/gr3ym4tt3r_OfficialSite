@@ -3,7 +3,6 @@
 import { ContainedPageLayout } from '@/components/layout'
 import { Container, Grid, Stack, Button, Heading, Text } from '@/design-system'
 import { ExternalLink, Github } from 'lucide-react'
-import type { Metadata } from 'next'
 import { useState } from 'react'
 import Image from 'next/image'
 
@@ -18,8 +17,8 @@ const projects = [
     status: 'In Progress',
     featured: true,
     image: '/placeholder-project-1.jpg',
-    githubUrl: '#',
-    liveUrl: '#'
+    githubUrl: 'https://github.com/gr3ym4tt3r-official/design-system',
+    liveUrl: 'https://design-system.gr3ym4tt3r.com'
   },
   {
     id: 2,
@@ -30,7 +29,7 @@ const projects = [
     status: 'Planning',
     featured: false,
     image: '/placeholder-project-2.jpg',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/gr3ym4tt3r-official/stoic-daily',
     liveUrl: null
   },
   {
