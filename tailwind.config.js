@@ -9,6 +9,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // CSS variable-based semantic colors
+        'bg': {
+          'primary': 'var(--color-bg-primary)',
+          'secondary': 'var(--color-bg-secondary)',
+          'tertiary': 'var(--color-bg-tertiary)',
+          'inverse': 'var(--color-bg-inverse)',
+        },
+        'text': {
+          'primary': 'var(--color-text-primary)',
+          'secondary': 'var(--color-text-secondary)',
+          'tertiary': 'var(--color-text-tertiary)',
+          'inverse': 'var(--color-text-inverse)',
+          'accent': 'var(--color-text-accent)',
+        },
+        'border': {
+          'primary': 'var(--color-border-primary)',
+          'secondary': 'var(--color-border-secondary)',
+          'accent': 'var(--color-border-accent)',
+          'subtle': 'var(--color-border-subtle)',
+        },
         // GR3YM4TT3R Brand Colors - Dark monochrome with surgical red accents
         'signal-red': {
           500: '#DC2626', // Main red
@@ -40,8 +60,9 @@ module.exports = {
         }
       },
       fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'], // Modern grotesk for UI
-        'display': ['Cinzel', 'serif'], // Classical display for headings
+        'sans': ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'], // Modern grotesk for UI
+        'display': ['var(--font-cinzel)', 'Cinzel', 'serif'], // Classical display for headings
+        'mono': ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'monospace'], // Code font
       },
       spacing: {
         // 4px base rhythm

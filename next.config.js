@@ -43,8 +43,8 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // Next.js requires unsafe-inline/eval in dev
-              "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
+              "script-src 'self' 'unsafe-inline' 'nonce-theme-init'", // Restrict unsafe-inline to specific nonce
+              "style-src 'self' 'unsafe-inline'", // Remove fonts.googleapis.com (not using remote CSS)
               "font-src 'self' fonts.googleapis.com fonts.gstatic.com data:",
               "img-src 'self' data: blob: images.unsplash.com",
               "connect-src 'self'",

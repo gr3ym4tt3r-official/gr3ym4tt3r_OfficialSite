@@ -1,10 +1,7 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
-
 /* Import Design System Theme Variables */
 @import '../src/design-system/utilities/theme-vars.css';
+
+/* Fonts are loaded via Next.js next/font in layout.tsx for better performance and CSP compliance */
 
 @tailwind base;
 @tailwind components;
