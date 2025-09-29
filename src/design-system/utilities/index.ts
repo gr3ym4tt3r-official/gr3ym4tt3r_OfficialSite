@@ -6,4 +6,4 @@
 
 // Theme Provider and utilities
 export { ThemeProvider, useTheme, withTheme, ThemeToggle } from './ThemeProvider';
-export type { Theme } from './ThemeProvider';
+export type { Theme as ThemeMode } from './ThemeProvider';

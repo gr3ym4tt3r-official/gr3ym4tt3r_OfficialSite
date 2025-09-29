@@ -1,4 +1,4 @@
-import { Container, Stack, Text } from '@/design-system'
+import { Container, Stack, Flex, Text, Lead, Caption } from '@/design-system'
 import { SocialButton } from '@/design-system/components/Button'
 import Link from 'next/link'
 
@@ -38,12 +38,12 @@ export function Footer() {
             >
               GR3YM4TT3R
             </Link>
-            <Text variant="body" color="muted" className="mb-6 max-w-md">
+            <Text color="secondary" className="mb-6 max-w-md">
               Modern, masculine, stoic brand. Communicating strength, courage, and discipline through premium design and technical excellence.
             </Text>
             
             {/* Social Links */}
-            <Stack direction="horizontal" space="sm" className="mb-6">
+            <Flex space="sm" className="mb-6">
               <SocialButton 
                 platform="twitter" 
                 href="https://twitter.com/gr3ym4tt3r" 
@@ -64,18 +64,13 @@ export function Footer() {
                 href="https://instagram.com/gr3ym4tt3r" 
                 aria-label="Follow us on Instagram"
               />
-              <SocialButton 
-                platform="youtube" 
-                href="https://youtube.com/@gr3ym4tt3r" 
-                aria-label="Subscribe to our YouTube channel"
-              />
-            </Stack>
+            </Flex>
           </div>
 
           {/* Footer Links */}
           {footerLinks.map((section) => (
             <div key={section.title}>
-              <Text variant="body" color="primary" className="font-semibold mb-4">
+              <Text color="primary" className="font-semibold mb-4">
                 {section.title}
               </Text>
               <Stack space="xs">
@@ -95,12 +90,12 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-grey-800/50 flex flex-col md:flex-row justify-between items-center">
-          <Text variant="caption" color="muted">
+          <Caption>
             © {currentYear} GR3YM4TT3R. All rights reserved.
-          </Text>
-          <Text variant="caption" color="muted" className="mt-2 md:mt-0">
+          </Caption>
+          <Caption className="mt-2 md:mt-0">
             Built with precision and discipline.
-          </Text>
+          </Caption>
         </div>
       </Container>
     </footer>

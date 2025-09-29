@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Button Component
  * 
@@ -15,7 +17,7 @@ import { borderRadius } from '../tokens/spacing';
 type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'social' | 'link';
 type ButtonSize = 'sm' | 'base' | 'lg';
 
-interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {
+interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'onAnimationStart' | 'onAnimationEnd' | 'onDragStart' | 'onDrag' | 'onDragEnd'> {
   children: ReactNode;
   variant?: ButtonVariant;
   size?: ButtonSize;

@@ -1,5 +1,5 @@
 import { ContainedPageLayout } from '@/components/layout'
-import { Container, Stack, Heading, Text } from '@/design-system'
+import { Container, Stack, Heading, DisplayHeading, SectionHeading, Text, Lead, Caption } from '@/design-system'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -11,12 +11,12 @@ export default function TermsPage() {
   return (
     <ContainedPageLayout>
       <section className="py-16">
-        <Container size="narrow">
+        <Container size="sm">
           <Stack space="lg">
-            <Heading variant="display" size="xl">
+            <DisplayHeading size="xl">
               Terms of Service
-            </Heading>
-            <Text variant="body" color="muted">
+            </DisplayHeading>
+            <Text color="secondary">
               Last updated: {new Date().toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'long', 
@@ -25,27 +25,27 @@ export default function TermsPage() {
             </Text>
             
             <div className="prose prose-invert max-w-none">
-              <Text variant="body" color="primary" className="mb-6">
+              <Text color="primary" className="mb-6">
                 These Terms of Service govern your use of the GR3YM4TT3R website and services.
                 By accessing our website, you agree to these terms.
               </Text>
               
               <div className="space-y-8">
                 <div>
-                  <Heading variant="heading" size="lg" className="mb-4">
+                  <SectionHeading size="lg" className="mb-4">
                     Use of Website
-                  </Heading>
-                  <Text variant="body" color="muted">
+                  </SectionHeading>
+                  <Text color="secondary">
                     You may use our website for lawful purposes only. You agree not to use 
                     the website in any way that could damage, disable, or impair the website.
                   </Text>
                 </div>
                 
                 <div>
-                  <Heading variant="heading" size="lg" className="mb-4">
+                  <SectionHeading size="lg" className="mb-4">
                     Intellectual Property
-                  </Heading>
-                  <Text variant="body" color="muted">
+                  </SectionHeading>
+                  <Text color="secondary">
                     All content on this website, including text, graphics, logos, and images, 
                     is the property of GR3YM4TT3R and is protected by copyright and other 
                     intellectual property laws.
@@ -53,10 +53,10 @@ export default function TermsPage() {
                 </div>
                 
                 <div>
-                  <Heading variant="heading" size="lg" className="mb-4">
+                  <SectionHeading size="lg" className="mb-4">
                     Contact Information
-                  </Heading>
-                  <Text variant="body" color="muted">
+                  </SectionHeading>
+                  <Text color="secondary">
                     If you have any questions about these Terms of Service, please contact us 
                     at hello@gr3ym4tt3r.com.
                   </Text>

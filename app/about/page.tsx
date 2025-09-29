@@ -1,5 +1,5 @@
 import { ContainedPageLayout } from '@/components/layout'
-import { Container, Grid, Stack, Heading, Text } from '@/design-system'
+import { Container, Grid, Stack, Heading, DisplayHeading, SectionHeading, Text, Lead, Caption } from '@/design-system'
 import { Code, Coffee, Dumbbell, Mountain } from 'lucide-react'
 import type { Metadata } from 'next'
 
@@ -43,41 +43,41 @@ export default function AboutPage() {
     <ContainedPageLayout>
       {/* Hero Section */}
       <section className="py-16 text-center">
-        <Container size="narrow">
+        <Container size="lg">
           <Stack space="lg">
-            <Heading variant="display" size="xl">
+            <DisplayHeading size="xl">
               About GR3YM4TT3R
-            </Heading>
-            <Text variant="lead" color="muted">
+            </DisplayHeading>
+            <Lead color="secondary">
               Modern masculinity meets stoic philosophy in the pursuit of technical excellence
-            </Text>
+            </Lead>
           </Stack>
         </Container>
       </section>
 
       {/* Philosophy Section */}
       <section className="py-20">
-        <Container size="wide">
+        <Container size="full">
           <div className="max-w-4xl mx-auto mb-16">
-            <Heading variant="heading" size="xl" className="mb-8 text-center">
+            <SectionHeading size="xl" className="mb-8 text-center">
               Philosophy & Approach
-            </Heading>
+            </SectionHeading>
             <div className="prose prose-lg prose-invert max-w-none">
-              <Text variant="body" color="primary" className="text-lg leading-relaxed mb-6">
+              <Text color="primary" className="text-lg leading-relaxed mb-6">
                 GR3YM4TT3R represents the intersection of ancient wisdom and modern technology. 
                 We believe that true strength comes not from external validation, but from the 
                 disciplined pursuit of excellence in all endeavors.
               </Text>
-              <Text variant="body" color="muted" className="leading-relaxed mb-6">
+              <Text color="secondary" className="leading-relaxed mb-6">
                 Our approach combines the stoic principles of duty, courage, and precision with 
                 cutting-edge technical skills. Every project is approached with the mindset of a 
                 craftsman—attention to detail, respect for the process, and an unwavering commitment 
                 to quality.
               </Text>
-              <Text variant="body" color="muted" className="leading-relaxed">
+              <Text color="secondary" className="leading-relaxed">
                 In a world of shortcuts and surface-level solutions, we choose the path of depth, 
                 authenticity, and sustainable excellence. This is not just about building software—
-                it's about building character through code.
+                it&apos;s about building character through code.
               </Text>
             </div>
           </div>
@@ -86,17 +86,17 @@ export default function AboutPage() {
 
       {/* Core Principles */}
       <section className="py-20 bg-grey-900/30">
-        <Container size="wide">
+        <Container size="full">
           <div className="text-center mb-16">
-            <Heading variant="heading" size="xl" className="mb-4">
+            <SectionHeading size="xl" className="mb-4">
               Core Principles
-            </Heading>
-            <Text variant="body" color="muted">
+            </SectionHeading>
+            <Text color="secondary">
               The foundational values that guide every decision and action
             </Text>
           </div>
           
-          <Grid cols={{ base: 1, md: 2 }} gap="lg">
+          <Grid cols={{ sm: 1, md: 2 }} gap="lg">
             {principles.map((principle) => {
               const IconComponent = principle.icon
               return (
@@ -111,10 +111,10 @@ export default function AboutPage() {
                       </div>
                     </div>
                     <div>
-                      <Heading variant="heading" size="md" className="mb-3">
+                      <SectionHeading size="base" className="mb-3">
                         {principle.title}
-                      </Heading>
-                      <Text variant="body" color="muted">
+                      </SectionHeading>
+                      <Text color="secondary">
                         {principle.description}
                       </Text>
                     </div>
@@ -128,28 +128,28 @@ export default function AboutPage() {
 
       {/* Technical Expertise */}
       <section className="py-20">
-        <Container size="wide">
+        <Container size="full">
           <div className="text-center mb-16">
-            <Heading variant="heading" size="xl" className="mb-4">
+            <SectionHeading size="xl" className="mb-4">
               Technical Expertise
-            </Heading>
-            <Text variant="body" color="muted">
+            </SectionHeading>
+            <Text color="secondary">
               Tools and technologies mastered through disciplined practice
             </Text>
           </div>
           
-          <Grid cols={{ base: 1, md: 2, lg: 4 }} gap="lg">
+          <Grid cols={{ sm: 1, md: 2, lg: 4 }} gap="lg">
             {technicalSkills.map((category) => (
               <div 
                 key={category.category}
                 className="p-6 bg-grey-900/30 rounded-lg border border-grey-800/30"
               >
-                <Heading variant="heading" size="sm" className="mb-4 text-signal-red-500">
+                <SectionHeading size="sm" className="mb-4 text-signal-red-500">
                   {category.category}
-                </Heading>
+                </SectionHeading>
                 <Stack space="xs">
                   {category.skills.map((skill) => (
-                    <Text key={skill} variant="body" color="muted" className="text-sm">
+                    <Text key={skill} color="secondary" className="text-sm">
                       {skill}
                     </Text>
                   ))}
@@ -162,22 +162,22 @@ export default function AboutPage() {
 
       {/* Personal Mission */}
       <section className="py-20 bg-grey-900/30">
-        <Container size="narrow" className="text-center">
+        <Container size="sm" className="text-center">
           <Stack space="lg">
-            <Heading variant="heading" size="xl">
+            <SectionHeading size="xl">
               The Mission
-            </Heading>
-            <Text variant="lead" color="muted">
+            </SectionHeading>
+            <Lead color="secondary">
               To demonstrate that excellence is not a destination, but a way of traveling—
               combining timeless principles with modern tools to create work that matters.
-            </Text>
+            </Lead>
             <div className="mt-8">
-              <Text variant="body" color="primary" className="font-medium">
-                "You have power over your mind - not outside events. Realize this, and you will find strength."
+              <Text color="primary" className="font-medium">
+                &quot;You have power over your mind - not outside events. Realize this, and you will find strength.&quot;
               </Text>
-              <Text variant="caption" color="muted" className="mt-2">
+              <Caption className="mt-2">
                 — Marcus Aurelius
-              </Text>
+              </Caption>
             </div>
           </Stack>
         </Container>

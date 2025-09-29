@@ -1,5 +1,5 @@
 import { ContainedPageLayout } from '@/components/layout'
-import { Container, Grid, Stack, Button, Heading, Text } from '@/design-system'
+import { Container, Grid, Stack, Button, Heading, DisplayHeading, SectionHeading, Text, Lead, Caption } from '@/design-system'
 import { Mail, MessageSquare, Clock } from 'lucide-react'
 import type { Metadata } from 'next'
 
@@ -13,24 +13,24 @@ export default function ContactPage() {
     <ContainedPageLayout>
       {/* Hero Section */}
       <section className="py-16 text-center">
-        <Container size="narrow">
+        <Container size="sm">
           <Stack space="lg">
-            <Heading variant="display" size="xl">
-              Let's Connect
-            </Heading>
-            <Text variant="lead" color="muted">
-              Ready to build something exceptional? Let's discuss your project with precision and purpose.
-            </Text>
+            <DisplayHeading size="xl">
+              Let&apos;s Connect
+            </DisplayHeading>
+            <Lead color="secondary">
+              Ready to build something exceptional? Let&apos;s discuss your project with precision and purpose.
+            </Lead>
           </Stack>
         </Container>
       </section>
 
-      <Grid cols={{ base: 1, lg: 2 }} gap="xl" className="py-12">
+      <Grid cols={{ sm: 1, lg: 2 }} gap="xl" className="py-12">
         {/* Contact Form */}
         <div className="bg-grey-950/50 rounded-lg border border-grey-800/50 p-8">
-          <Heading variant="heading" size="lg" className="mb-6">
+          <SectionHeading size="lg" className="mb-6">
             Start a Conversation
-          </Heading>
+          </SectionHeading>
           
           <form className="space-y-6" noValidate>
             <div>
@@ -104,12 +104,12 @@ export default function ContactPage() {
         {/* Contact Information */}
         <div className="space-y-8">
           <div>
-            <Heading variant="heading" size="lg" className="mb-6">
+            <SectionHeading size="lg" className="mb-6">
               Get in Touch
-            </Heading>
-            <Text variant="body" color="muted" className="mb-8">
+            </SectionHeading>
+            <Text color="secondary" className="mb-8">
               Whether you have a project in mind, want to collaborate, or simply want to connect, 
-              I'm always interested in meaningful conversations about technology, philosophy, and building something great.
+              I&apos;m always interested in meaningful conversations about technology, philosophy, and building something great.
             </Text>
           </div>
 
@@ -121,10 +121,10 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <Text variant="body" className="font-medium mb-1">
+                <Text className="font-medium mb-1">
                   Email
                 </Text>
-                <Text variant="body" color="muted">
+                <Text color="secondary">
                   hello@gr3ym4tt3r.com
                 </Text>
               </div>
@@ -137,10 +137,10 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <Text variant="body" className="font-medium mb-1">
+                <Text className="font-medium mb-1">
                   Response Time
                 </Text>
-                <Text variant="body" color="muted">
+                <Text color="secondary">
                   Within 24 hours
                 </Text>
               </div>
@@ -153,10 +153,10 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <Text variant="body" className="font-medium mb-1">
+                <Text className="font-medium mb-1">
                   Availability
                 </Text>
-                <Text variant="body" color="muted">
+                <Text color="secondary">
                   Open for select projects
                 </Text>
               </div>
@@ -165,16 +165,19 @@ export default function ContactPage() {
 
           {/* Call to Action */}
           <div className="bg-grey-900/30 rounded-lg p-6 mt-8">
-            <Heading variant="heading" size="md" className="mb-3">
+            <SectionHeading size="base" className="mb-3">
               Project Collaboration
-            </Heading>
-            <Text variant="body" color="muted" className="mb-4">
+            </SectionHeading>
+            <Text color="secondary" className="mb-4">
               Looking for a technical partner who values quality, precision, and timeless principles? 
-              Let's explore how we can create something exceptional together.
+              Let&apos;s explore how we can create something exceptional together.
             </Text>
-            <Button variant="secondary" asChild>
-              <a href="/work">View Previous Work</a>
-            </Button>
+            <a 
+              href="/work"
+              className="inline-flex items-center justify-center px-6 py-3 bg-transparent text-grey-100 border border-grey-700 rounded-lg hover:bg-grey-800/50 hover:border-signal-red-500 transition-all duration-200 font-medium text-sm"
+            >
+              View Previous Work
+            </a>
           </div>
         </div>
       </Grid>

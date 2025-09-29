@@ -1,5 +1,5 @@
 import { ContainedPageLayout } from '@/components/layout'
-import { Container, Stack, Heading, Text } from '@/design-system'
+import { Container, Stack, Heading, DisplayHeading, SectionHeading, Text, Lead, Caption } from '@/design-system'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
@@ -22,12 +22,12 @@ export default function SitemapPage() {
   return (
     <ContainedPageLayout>
       <section className="py-16">
-        <Container size="narrow">
+        <Container size="sm">
           <Stack space="lg">
-            <Heading variant="display" size="xl">
+            <DisplayHeading size="xl">
               Sitemap
-            </Heading>
-            <Text variant="body" color="muted">
+            </DisplayHeading>
+            <Text color="secondary">
               Navigate through all pages and sections of the GR3YM4TT3R website.
             </Text>
             
@@ -39,15 +39,15 @@ export default function SitemapPage() {
                       href={page.href}
                       className="block hover:text-signal-red-500 transition-colors duration-200"
                     >
-                      <Heading variant="heading" size="md" className="mb-2">
+                      <SectionHeading size="base" className="mb-2">
                         {page.label}
-                      </Heading>
-                      <Text variant="body" color="muted">
+                      </SectionHeading>
+                      <Text color="secondary">
                         {page.description}
                       </Text>
-                      <Text variant="caption" color="muted" className="mt-2">
+                      <Caption className="mt-2">
                         {page.href}
-                      </Text>
+                      </Caption>
                     </Link>
                   </div>
                 ))}

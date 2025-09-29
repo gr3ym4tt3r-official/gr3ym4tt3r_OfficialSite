@@ -47,9 +47,12 @@ export function Header() {
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
-            <Button variant="primary" size="sm" asChild>
-              <Link href="/contact">Get Started</Link>
-            </Button>
+            <Link 
+              href="/contact"
+              className="inline-flex items-center justify-center px-4 py-2 bg-signal-red-500 text-grey-950 border border-signal-red-500 rounded hover:bg-red-600 hover:shadow-lg hover:shadow-signal-red-500/40 transition-all duration-200 font-medium text-sm"
+            >
+              Get Started
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -92,9 +95,12 @@ export function Header() {
                 </Link>
               ))}
               <div className="pt-4 border-t border-grey-800/50">
-                <Button variant="primary" size="sm" className="w-full" asChild>
-                  <Link href="/contact">Get Started</Link>
-                </Button>
+                <Link 
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-4 py-2 bg-signal-red-500 text-grey-950 border border-signal-red-500 rounded hover:bg-red-600 hover:shadow-lg hover:shadow-signal-red-500/40 transition-all duration-200 font-medium text-sm w-full"
+                >
+                  Get Started
+                </Link>
               </div>
             </div>
           </nav>

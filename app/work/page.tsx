@@ -1,7 +1,7 @@
 'use client'
 
 import { ContainedPageLayout } from '@/components/layout'
-import { Container, Grid, Stack, Button, Heading, Text } from '@/design-system'
+import { Container, Grid, Stack, Button, Heading, DisplayHeading, SectionHeading, Text, Lead, Caption } from '@/design-system'
 import { ExternalLink, Github } from 'lucide-react'
 import { useState } from 'react'
 import Image from 'next/image'
@@ -59,9 +59,9 @@ function ProjectCard({ project }: ProjectCardProps) {
       {/* Project Image */}
       <div className="aspect-video bg-grey-900 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-grey-800 to-grey-900 flex items-center justify-center">
-          <Text variant="caption" color="muted">
+          <Caption>
             Project Preview
-          </Text>
+          </Caption>
         </div>
         {project.featured && (
           <div className="absolute top-4 left-4">
@@ -84,10 +84,10 @@ function ProjectCard({ project }: ProjectCardProps) {
               {project.status}
             </span>
           </div>
-          <Heading variant="heading" size="md" className="mb-3">
+          <SectionHeading size="base" className="mb-3">
             {project.title}
-          </Heading>
-          <Text variant="body" color="muted" className="mb-4">
+          </SectionHeading>
+          <Text color="secondary" className="mb-4">
             {project.description}
           </Text>
         </div>
@@ -109,20 +109,26 @@ function ProjectCard({ project }: ProjectCardProps) {
         {/* Actions */}
         <div className="flex space-x-3">
           {project.githubUrl && (
-            <Button variant="ghost" size="sm" asChild>
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="w-4 h-4 mr-2" />
-                Code
-              </a>
-            </Button>
+            <a 
+              href={project.githubUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-3 py-2 bg-transparent text-grey-100 border border-transparent rounded hover:bg-grey-800/50 hover:text-signal-red-500 transition-all duration-200 font-medium text-sm"
+            >
+              <Github className="w-4 h-4 mr-2" />
+              Code
+            </a>
           )}
           {project.liveUrl && (
-            <Button variant="secondary" size="sm" asChild>
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Live Site
-              </a>
-            </Button>
+            <a 
+              href={project.liveUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-3 py-2 bg-transparent text-grey-100 border border-grey-700 rounded hover:bg-grey-800/50 hover:border-signal-red-500 transition-all duration-200 font-medium text-sm"
+            >
+              <ExternalLink className="w-4 h-4 mr-2" />
+              Live Site
+            </a>
           )}
         </div>
       </div>
@@ -144,26 +150,26 @@ export default function WorkPage() {
     <ContainedPageLayout>
       {/* Hero Section */}
       <section className="py-16 text-center">
-        <Container size="narrow">
+        <Container size="sm">
           <Stack space="lg">
-            <Heading variant="display" size="xl">
+            <DisplayHeading size="xl">
               Work & Projects
-            </Heading>
-            <Text variant="lead" color="muted">
+            </DisplayHeading>
+            <Lead color="secondary">
               A showcase of projects built with discipline, precision, and technical excellence
-            </Text>
+            </Lead>
           </Stack>
         </Container>
       </section>
 
       {/* Filters */}
       <section className="py-8">
-        <Container size="wide">
+        <Container size="full">
           <div className="mb-8">
             <div className="flex flex-col sm:flex-row gap-6">
               {/* Category Filter */}
               <div>
-                <Text variant="body" className="mb-3 font-medium text-grey-300">
+                <Text className="mb-3 font-medium text-grey-300">
                   Category
                 </Text>
                 <div className="flex flex-wrap gap-2">
@@ -182,7 +188,7 @@ export default function WorkPage() {
 
               {/* Status Filter */}
               <div>
-                <Text variant="body" className="mb-3 font-medium text-grey-300">
+                <Text className="mb-3 font-medium text-grey-300">
                   Status
                 </Text>
                 <div className="flex flex-wrap gap-2">
@@ -205,16 +211,16 @@ export default function WorkPage() {
 
       {/* Projects Grid */}
       <section className="py-8">
-        <Container size="wide">
+        <Container size="full">
           {filteredProjects.length > 0 ? (
-            <Grid cols={{ base: 1, md: 2, lg: 3 }} gap="lg">
+            <Grid cols={{ sm: 1, md: 2, lg: 3 }} gap="lg">
               {filteredProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
             </Grid>
           ) : (
             <div className="text-center py-16">
-              <Text variant="body" color="muted">
+              <Text color="secondary">
                 No projects found matching the selected filters.
               </Text>
             </div>
@@ -224,18 +230,21 @@ export default function WorkPage() {
 
       {/* CTA Section */}
       <section className="py-20 bg-grey-900/30 rounded-lg mt-16">
-        <Container size="narrow" className="text-center">
+        <Container size="sm" className="text-center">
           <Stack space="lg">
-            <Heading variant="heading" size="xl">
+            <SectionHeading size="xl">
               Have a Project in Mind?
-            </Heading>
-            <Text variant="body" color="muted">
-              Let's discuss how we can bring your vision to life with precision and excellence.
+            </SectionHeading>
+            <Text color="secondary">
+              Let&apos;s discuss how we can bring your vision to life with precision and excellence.
             </Text>
             <div className="mt-8">
-              <Button variant="primary" size="lg" asChild>
-                <a href="/contact">Start a Project</a>
-              </Button>
+              <a 
+                href="/contact"
+                className="inline-flex items-center justify-center px-6 py-4 bg-signal-red-500 text-grey-950 border border-signal-red-500 rounded-lg hover:bg-red-600 hover:shadow-lg hover:shadow-signal-red-500/40 transition-all duration-200 font-medium text-base min-h-12"
+              >
+                Start a Project
+              </a>
             </div>
           </Stack>
         </Container>

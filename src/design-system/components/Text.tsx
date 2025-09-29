@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Text Component
  * 
@@ -124,8 +126,8 @@ export const BodyText = forwardRef<HTMLElement, Omit<TextProps, 'size'> & {
 BodyText.displayName = 'BodyText';
 
 export const Caption = forwardRef<HTMLElement, Omit<TextProps, 'size' | 'color'>>(
-  ({ color = 'secondary', ...props }, ref) => {
-    return <Text ref={ref} size="xs" color={color} {...props} />;
+  (props, ref) => {
+    return <Text ref={ref} size="xs" color="secondary" {...props} />;
   }
 );
 
