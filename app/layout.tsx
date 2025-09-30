@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Cinzel, JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from '../src/design-system/utilities/ThemeProvider'
+import { AnimationProvider } from '../src/design-system/utilities/AnimationProvider'
 import './globals.css'
 
 // Google Fonts - Free fonts as specified in PRD
@@ -74,15 +75,17 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider defaultTheme="dark">
-          <div className="relative min-h-screen">
-            {/* Micro-grain texture overlay as specified in PRD */}
-            <div className="fixed inset-0 opacity-[0.015] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSBiYXNlRnJlcXVlbmN5PSIwLjkiIG51bU9jdGF2ZXM9IjQiIHJlc3VsdD0ibm9pc2UiLz48ZmVDb2xvck1hdHJpeCBpbj0ibm9pc2UiIHR5cGU9InNhdHVyYXRlIiB2YWx1ZXM9IjAiLz48L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI25vaXNlKSIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] z-0" />
-            
-            {/* Main content */}
-            <div className="relative z-10">
-              {children}
+          <AnimationProvider>
+            <div className="relative min-h-screen">
+              {/* Micro-grain texture overlay as specified in PRD */}
+              <div className="fixed inset-0 opacity-[0.015] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSBiYXNlRnJlcXVlbmN5PSIwLjkiIG51bU9jdGF2ZXM9IjQiIHJlc3VsdD0ibm9pc2UiLz48ZmVDb2xvck1hdHJpeCBpbj0ibm9pc2UiIHR5cGU9InNhdHVyYXRlIiB2YWx1ZXM9IjAiLz48L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI25vaXNlKSIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] z-0" />
+              
+              {/* Main content */}
+              <div className="relative z-10">
+                {children}
+              </div>
             </div>
-          </div>
+          </AnimationProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -16,5 +16,8 @@ export { Text, BodyText, Caption, Lead } from './Text';
 // Button Components
 export { Button, SocialButton, IconButton } from './Button';
 
+// Animation Components
+export * from './animations';
+
 // Re-export types for easier import
 export type { ComponentPropsWithoutRef } from 'react';

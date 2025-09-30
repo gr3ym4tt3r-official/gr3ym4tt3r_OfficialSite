@@ -13,6 +13,8 @@ import { typography } from '../tokens/typography';
 import { dark, light } from '../tokens/colors';
 import { hoverAnimations, focusAnimations } from '../tokens/motion';
 import { borderRadius } from '../tokens/spacing';
+import { useMotionVariants } from '../utilities/AnimationProvider';
+import { HoverAnimation } from './animations';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'social' | 'link';
 type ButtonSize = 'sm' | 'base' | 'lg';
@@ -203,25 +205,27 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       }
     };
 
+    const hoverType = variant === 'social' ? 'socialIcon' : 'button';
+
     return (
-      <motion.button
-        ref={ref}
-        className={className}
-        style={style}
-        disabled={disabled}
-        whileHover={disabled ? {} : getHoverAnimation()}
-        whileTap={disabled ? {} : { scale: 0.98 }}
-        whileFocus={focusAnimations.ring}
-        {...props}
-      >
-        {icon && iconPosition === 'left' && (
-          <span className="button-icon">{icon}</span>
-        )}
-        {children}
-        {icon && iconPosition === 'right' && (
-          <span className="button-icon">{icon}</span>
-        )}
-      </motion.button>
+      <HoverAnimation type={hoverType} className={className}>
+        <motion.button
+          ref={ref}
+          style={style}
+          disabled={disabled}
+          whileTap={disabled ? {} : { scale: 0.98 }}
+          whileFocus={focusAnimations.ring}
+          {...props}
+        >
+          {icon && iconPosition === 'left' && (
+            <span className="button-icon">{icon}</span>
+          )}
+          {children}
+          {icon && iconPosition === 'right' && (
+            <span className="button-icon">{icon}</span>
+          )}
+        </motion.button>
+      </HoverAnimation>
     );
   }
 );

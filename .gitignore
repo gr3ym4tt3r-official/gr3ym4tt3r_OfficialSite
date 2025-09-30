@@ -200,6 +200,9 @@ todo.md
 TODO.md
 .notes/
 
+# Project documentation (internal)
+projectDocs/
+
 # Build analysis
 .next-bundle-analyzer/
 bundle-analyzer-report.html

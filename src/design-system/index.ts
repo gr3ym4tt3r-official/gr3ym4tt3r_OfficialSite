@@ -14,5 +14,10 @@ export * from './components';
 // Utilities
 export * from './utilities';
 
+// Animation System
+export * from './components/animations';
+export * from './utilities/AnimationProvider';
+export * from './utilities/animation-utils';
+
 // Version and metadata
 export { designSystem } from './tokens';
