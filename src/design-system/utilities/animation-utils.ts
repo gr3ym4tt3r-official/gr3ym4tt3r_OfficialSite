@@ -151,9 +151,9 @@ export function useAnimationCleanup() {
   };
   
   useEffect(() => {
+    const elements = elementsRef.current;
     return () => {
       // Cleanup all registered elements
-      const elements = elementsRef.current;
       elements.forEach(element => {
         if (element) {
           element.style.willChange = 'auto';

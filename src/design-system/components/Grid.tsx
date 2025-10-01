@@ -8,12 +8,17 @@
  */
 
 import { ReactNode, forwardRef } from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
+import { motion, HTMLMotionProps, Variants } from 'framer-motion';
+import { useMotionVariants } from '../utilities/AnimationProvider';
+import { animations } from '../tokens/motion';
 
-interface GridProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
+interface GridProps extends Omit<HTMLMotionProps<'div'>, 'children' | 'variants'> {
   children: ReactNode;
   cols?: number | { sm?: number; md?: number; lg?: number; xl?: number };
   gap?: 'sm' | 'base' | 'lg' | 'xl';
+  animation?: keyof typeof animations | false;
+  stagger?: boolean;
+  customVariants?: Variants;
   className?: string;
 }
 
@@ -63,7 +68,16 @@ const getResponsiveColumnClasses = (cols: GridProps['cols']) => {
 };
 
 export const Grid = forwardRef<HTMLDivElement, GridProps>(
-  ({ children, cols = 1, gap = 'base', className = '', ...props }, ref) => {
+  ({ 
+    children, 
+    cols = 1, 
+    gap = 'base', 
+    animation = false,
+    stagger = false,
+    customVariants,
+    className = '', 
+    ...props 
+  }, ref) => {
     const gapClass = gapSizes[gap];
     const colsClass = getResponsiveColumnClasses(cols);
     
@@ -75,10 +89,33 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>(
 
     const combinedClassName = [baseClasses, className].filter(Boolean).join(' ');
 
+    // Animation variants
+    let variants = customVariants;
+    if (animation && !customVariants) {
+      variants = animations[animation];
+    }
+    if (stagger) {
+      variants = {
+        animate: {
+          transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.1,
+          },
+        },
+      };
+    }
+
+    const motionVariants = useMotionVariants(variants || {});
+    const hasAnimation = animation || stagger || customVariants;
+
     return (
       <motion.div
         ref={ref}
         className={combinedClassName}
+        variants={hasAnimation ? motionVariants : undefined}
+        initial={hasAnimation ? "initial" : undefined}
+        animate={hasAnimation ? "animate" : undefined}
+        exit={hasAnimation ? "exit" : undefined}
         {...props}
       >
         {children}
