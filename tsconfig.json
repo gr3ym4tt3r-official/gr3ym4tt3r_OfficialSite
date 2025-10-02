@@ -24,7 +24,7 @@
       "@/components/*": ["./src/components/*"],
       "@/design-system": ["./src/design-system"],
       "@/design-system/*": ["./src/design-system/*"],
-      "@/lib/*": ["./lib/*"],
+      "@/lib/*": ["./src/lib/*"],
       "@/app/*": ["./app/*"]
     }
   },

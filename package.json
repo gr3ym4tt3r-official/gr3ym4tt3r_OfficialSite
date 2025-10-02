@@ -30,11 +30,22 @@
   },
   "homepage": "https://github.com/gr3ym4tt3r-official/gr3ym4tt3r_OfficialSite#readme",
   "dependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^15.5.4",
     "framer-motion": "^12.23.22",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.544.0",
     "next": "^15.5.4",
+    "next-mdx-remote": "^5.0.0",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-slug": "^6.0.0",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.13",
