@@ -1,11 +1,10 @@
 import { ContainedPageLayout } from '@/components/layout'
 import { Container, Stack, DisplayHeading, Text, Caption } from '@/design-system'
 import { getPostBySlug, getAllPostsSlugs, formatDate, getRelatedPosts } from '@/lib/blog'
+import { MDXRenderer } from '@/components/MDXRenderer'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import type { Metadata } from 'next'
-// MDX content will be rendered as simple markdown for now
-// We'll enhance this with proper MDX rendering later
 
 interface BlogPostPageProps {
   params: { slug: string }
@@ -103,14 +102,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </header>
 
             {/* Article Content */}
-            <div className="prose prose-lg prose-invert max-w-none">
-              <div className="whitespace-pre-wrap">
-                {/* For now, we'll display the raw content. MDX rendering will be added later */}
-                <Text className="leading-relaxed">
-                  {post.content}
-                </Text>
-              </div>
-            </div>
+            <MDXRenderer content={post.content} />
 
             {/* Article Footer */}
             <footer className="mt-16 pt-8 border-t border-grey-800">
