@@ -10,6 +10,11 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 31536000, // 1 year
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       {
         protocol: 'https',
@@ -20,6 +25,26 @@ const nextConfig = {
   // Performance optimizations per PRD requirements
   compress: true,
   poweredByHeader: false,
+  
+  // Experimental features for better performance
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@/design-system'],
+    webVitalsAttribution: ['CLS', 'LCP', 'INP', 'FCP', 'TTFB'],
+  },
+  
+  // Bundle analyzer (enable with ANALYZE=true)
+  ...(process.env.ANALYZE === 'true' && {
+    webpack: (config, { isServer }) => {
+      if (!isServer) {
+        config.resolve.fallback = {
+          fs: false,
+          net: false,
+          tls: false,
+        }
+      }
+      return config
+    },
+  }),
   // Security headers
   async headers() {
     return [
