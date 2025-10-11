@@ -7,12 +7,13 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 interface BlogPostPageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   try {
-    const post = getPostBySlug(params.slug)
+    const { slug } = await params
+    const post = getPostBySlug(slug)
     
     return {
       title: post.title,
@@ -48,9 +49,10 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
   try {
-    const post = getPostBySlug(params.slug)
+    const { slug } = await params
+    const post = getPostBySlug(slug)
     const relatedPosts = getRelatedPosts(post)
 
     if (!post.published) {
@@ -61,11 +63,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       <ContainedPageLayout>
         {/* Article Header */}
         <article className="py-16">
-          <Container size="md">
+          <Container size="base">
             <header className="mb-12">
               <Stack space="lg">
                 <div className="flex items-center justify-between">
-                  <Caption color="secondary">
+                  <Caption>
                     {formatDate(post.date)} • {post.readingTime.text}
                   </Caption>
                   <Link
@@ -134,7 +136,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                       className="bg-grey-900/50 border border-grey-800/30 rounded-lg p-6 hover:border-grey-700/50 transition-colors duration-200"
                     >
                       <Stack space="sm">
-                        <Caption color="secondary">
+                        <Caption>
                           {formatDate(relatedPost.date)}
                         </Caption>
                         

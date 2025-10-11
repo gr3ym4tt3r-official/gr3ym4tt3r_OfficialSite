@@ -2,6 +2,7 @@
   "name": "gr3ym4tt3r_officialsite",
   "version": "1.0.0",
   "description": "GR3YM4TT3R's Official Website for Customer Contact and Social Integration",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -45,7 +46,8 @@
     "rehype-highlight": "^7.0.2",
     "rehype-slug": "^6.0.0",
     "remark": "^15.0.1",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "remark-html": "^16.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.13",

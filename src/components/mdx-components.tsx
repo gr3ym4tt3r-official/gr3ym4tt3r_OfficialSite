@@ -8,9 +8,8 @@ import { Heading, Text } from '@/design-system'
 // React component you want, including components from
 // other libraries.
 
-export function useMDXComponents(components: MDXComponents): MDXComponents {
-  return {
-    // Headings
+export const mdxComponents: MDXComponents = {
+  // Headings
     h1: ({ children, ...props }) => (
       <Heading as="h1" size="4xl" className="mt-8 mb-4 first:mt-0" {...props}>
         {children}
@@ -51,7 +50,16 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
     // Links - use Next.js Link for internal links
     a: ({ href, children, ...props }) => {
-      const isExternal = href?.startsWith('http') || href?.startsWith('mailto:')
+      // More defensive href checking
+      if (!href || typeof href !== 'string') {
+        return (
+          <span className="text-signal-red-500 cursor-default" {...props}>
+            {children}
+          </span>
+        )
+      }
+      
+      const isExternal = href.startsWith('http') || href.startsWith('mailto:')
       
       if (isExternal) {
         return (
@@ -69,7 +77,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
       return (
         <Link
-          href={href || '#'}
+          href={href}
           className="text-signal-red-500 hover:text-signal-red-600 transition-colors duration-200 underline decoration-1 underline-offset-2"
           {...props}
         >
@@ -187,6 +195,4 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <hr className="my-8 border-t border-grey-700" {...props} />
     ),
 
-    ...components,
-  }
 }

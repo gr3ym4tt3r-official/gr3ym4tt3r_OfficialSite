@@ -35,9 +35,9 @@ export default function BlogPage() {
             <div className="grid gap-8">
               {posts.map((post) => (
                 <article key={post.slug} className="bg-grey-950/30 border border-grey-800/30 rounded-lg p-8 hover:border-grey-700/50 transition-colors duration-200">
-                  <Stack space="md">
+                  <Stack space="base">
                     <div className="flex items-center justify-between">
-                      <Caption color="secondary">
+                      <Caption>
                         {formatDateShort(post.date)} • {post.readingTime.text}
                       </Caption>
                       {post.tags && post.tags.length > 0 && (
