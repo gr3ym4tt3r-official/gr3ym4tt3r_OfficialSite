@@ -1,4 +1,5 @@
 import { ContainedPageLayout } from '@/components/layout'
+import { ContactForm } from '@/components/ContactForm'
 import { Container, Grid, Stack, Button, Heading, DisplayHeading, SectionHeading, Text, Lead, Caption } from '@/design-system'
 import { Mail, MessageSquare, Clock } from 'lucide-react'
 import type { Metadata } from 'next'
@@ -32,73 +33,7 @@ export default function ContactPage() {
             Start a Conversation
           </SectionHeading>
           
-          <form className="space-y-6" noValidate>
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-grey-300 mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                maxLength={100}
-                autoComplete="name"
-                className="w-full px-4 py-3 bg-grey-900/50 border border-grey-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-signal-red-500 focus:border-transparent text-grey-100 placeholder-grey-400"
-                placeholder="Your name"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-grey-300 mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                maxLength={254}
-                autoComplete="email"
-                className="w-full px-4 py-3 bg-grey-900/50 border border-grey-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-signal-red-500 focus:border-transparent text-grey-100 placeholder-grey-400"
-                placeholder="your@email.com"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-grey-300 mb-2">
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                required
-                maxLength={200}
-                className="w-full px-4 py-3 bg-grey-900/50 border border-grey-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-signal-red-500 focus:border-transparent text-grey-100 placeholder-grey-400"
-                placeholder="What's this about?"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-grey-300 mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={6}
-                required
-                maxLength={2000}
-                className="w-full px-4 py-3 bg-grey-900/50 border border-grey-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-signal-red-500 focus:border-transparent text-grey-100 placeholder-grey-400 resize-vertical"
-                placeholder="Tell me about your project, ideas, or how we can work together..."
-              />
-            </div>
-            
-            <Button variant="primary" size="lg" className="w-full">
-              Send Message
-            </Button>
-          </form>
+          <ContactForm />
         </div>
 
         {/* Contact Information */}
