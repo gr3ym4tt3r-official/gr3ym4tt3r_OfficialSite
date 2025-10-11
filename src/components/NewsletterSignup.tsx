@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Button, Stack, Text, SectionHeading } from '@/design-system'
 import { Loader, CheckCircle, AlertCircle, Mail } from 'lucide-react'
+import { trackNewsletterSignup } from '@/lib/analytics'
 
 interface FormData {
   email: string
@@ -87,6 +88,9 @@ export function NewsletterSignup({
         setSubmissionState('success')
         setResponseMessage(data.message || 'Thank you for subscribing!')
         
+        // Track successful signup
+        trackNewsletterSignup(true, variant)
+        
         // Reset form
         setFormData({
           email: '',
@@ -105,12 +109,18 @@ export function NewsletterSignup({
           setErrors(serverErrors)
         } else {
           setResponseMessage(data.error || 'Something went wrong. Please try again.')
+          
+          // Track failed signup
+          trackNewsletterSignup(false, variant)
         }
       }
     } catch (error) {
       console.error('Newsletter signup error:', error)
       setSubmissionState('error')
       setResponseMessage('Network error. Please check your connection and try again.')
+      
+      // Track network error
+      trackNewsletterSignup(false, variant)
     }
   }
 

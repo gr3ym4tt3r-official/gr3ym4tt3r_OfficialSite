@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Button, Stack, Text } from '@/design-system'
 import { Loader, CheckCircle, AlertCircle } from 'lucide-react'
+import { trackContactFormSubmission } from '@/lib/analytics'
 
 interface FormData {
   name: string
@@ -106,6 +107,9 @@ export function ContactForm() {
         setSubmissionState('success')
         setResponseMessage(data.message || 'Thank you for your message!')
         
+        // Track successful submission
+        trackContactFormSubmission(true)
+        
         // Reset form
         setFormData({
           name: '',
@@ -127,12 +131,18 @@ export function ContactForm() {
           setErrors(serverErrors)
         } else {
           setResponseMessage(data.error || 'Something went wrong. Please try again.')
+          
+          // Track failed submission
+          trackContactFormSubmission(false, data.details ? data.details.map((d: any) => d.message) : [data.error])
         }
       }
     } catch (error) {
       console.error('Form submission error:', error)
       setSubmissionState('error')
       setResponseMessage('Network error. Please check your connection and try again.')
+      
+      // Track network error
+      trackContactFormSubmission(false, ['Network error'])
     }
   }
 

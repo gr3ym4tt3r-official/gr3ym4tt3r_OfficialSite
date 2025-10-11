@@ -2,6 +2,7 @@ import { ContainedPageLayout } from '@/components/layout'
 import { Container, Stack, DisplayHeading, Text, Caption } from '@/design-system'
 import { getPostBySlug, getAllPostsSlugs, formatDate, getRelatedPosts } from '@/lib/blog'
 import { MDXRenderer } from '@/components/MDXRenderer'
+import { BlogPostAnalytics } from '@/components/BlogPostAnalytics'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import type { Metadata } from 'next'
@@ -61,6 +62,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
     return (
       <ContainedPageLayout>
+        <BlogPostAnalytics slug={post.slug} title={post.title} />
         {/* Article Header */}
         <article className="py-16">
           <Container size="base">
